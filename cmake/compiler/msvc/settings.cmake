@@ -104,7 +104,6 @@ message(STATUS "MSVC: Disabled NON-SECURE warnings")
 target_compile_definitions(trinity-compile-option-interface
   INTERFACE
     -D_CRT_NONSTDC_NO_WARNINGS)
-
 message(STATUS "MSVC: Disabled POSIX warnings")
 
 # Ignore specific warnings

@@ -117,8 +117,8 @@ IF(WIN32 AND NOT CYGWIN)
 
     if( CMAKE_CONFIGURATION_TYPES OR CMAKE_BUILD_TYPE )
       set( OPENSSL_LIBRARIES
-        optimized ${SSL_EAY_RELEASE} optimized ${LIB_EAY_RELEASE}
-        debug ${SSL_EAY_DEBUG} debug ${LIB_EAY_DEBUG}
+        optimized ${SSL_EAY_RELEASE} ${LIB_EAY_RELEASE}
+        debug ${SSL_EAY_DEBUG} ${LIB_EAY_DEBUG}
       )
     else()
       set( OPENSSL_LIBRARIES
@@ -230,7 +230,7 @@ if (OPENSSL_INCLUDE_DIR)
   include(EnsureVersion)
   ENSURE_VERSION_RANGE("${OPENSSL_EXPECTED_VERSION}" "${OPENSSL_VERSION}" "${OPENSSL_MAX_VERSION}" OPENSSL_VERSION_OK)
   if (NOT OPENSSL_VERSION_OK)
-      message(FATAL_ERROR "TrinityCore needs OpenSSL version ${OPENSSL_EXPECTED_VERSION} but found version ${OPENSSL_VERSION}")
+      message(FATAL_ERROR "TrinityCore needs OpenSSL version ${OPENSSL_EXPECTED_VERSION} but found too new version ${OPENSSL_VERSION}. TrinityCore needs OpenSSL 1.0.x or 1.1.x to work properly. If you still have problems please install OpenSSL 1.0.x if you still have problems search on forum for TCE00022")
   endif()
 endif (OPENSSL_INCLUDE_DIR)
 
